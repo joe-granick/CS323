@@ -14,7 +14,7 @@ class FindRoot:
         """
         p0=x0
         while True:
-            p1 =p0-f(p0)/f(p0)
+            p1=p0-((f(p0)-x0)/f(p0))
             print(p1)
             if abs(f(p1)-x0)<=tol:
                 return p1
