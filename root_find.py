@@ -1,4 +1,4 @@
-class FindRoot
+class FindRoot:
     def newton_method(f,f_prime,x0,tol=10e-6):
         """
         approximates root of a function
