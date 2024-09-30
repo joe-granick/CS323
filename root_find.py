@@ -26,11 +26,12 @@ class FindRoot:
         p0,p1 = x0,x1
 
         while True:
-            t=p1
-            p1=(f(p1)-f(p0))/(p1-p0)
-            p0=t 
-            if abs(p1-p0)<tol:
-                return p1
+            p2=p1-(f(p1)*(p1-p0))/(f(p1)-f(p0))
+            print(p2)
+            if abs(p2-p1)<tol:
+                return p2
+            p0=p1
+            p1=p2
 
 
         
@@ -44,7 +45,8 @@ f_prime = lambda x:2*x
 x = 2
 print(FindRoot.newton_method(f,f_prime,x))
 print()
-
+print(FindRoot.secant_method(f,2,1))
+6
 #problem 1
 print("Problem 1")
 f = lambda x:-(2*x)/math.e**(x/2)+1
