@@ -37,28 +37,29 @@ class FindRoot:
         
 
     def bisection_method(a,b,f,tol=10**-6):
-        p1 = a+(b-a)/2 
-        print(p1)
-        if math.abs(f(p1)) <tol:return p1 
-        if f(p1)>0:return bisection_method(a,p1,f,tol)
-        else: return bisection_method(p1,b,f,tol)
+        while ((b-a)/2)>tol:
+            p=(a+b)/2
+            print(p)
+            if f(p)==0: return p 
+            if f(a)*f(p)<0:b=p
+            else:a=p
+        return p
 
 
-#test newton_method
-f = lambda x:x**2-2
-f_prime = lambda x:2*x
-x = 2
-print(FindRoot.newton_method(f,f_prime,x))
-print()
-print(FindRoot.secant_method(f,2,1))
-a,b=1,2
-print(FindRoot.bisection_method(,2,1))
 #problem 1
 print("Problem 1")
-f = lambda x:-(2*x)/math.e**(x/2)+1
+f = lambda x:1-(2*x)*math.e**(-x/2)
 f_prime = lambda x:(x/(math.e**(x/2)) - 2/(math.e**(x/2)))
 x = 0
-print("Newton's Method: ", FindRoot.newton_method(f,f_prime,x))
+print("Newton's Method: ",FindRoot.newton_method(f,f_prime,x))
+print()
+
+x0,x1=x,1 
+print("Secant Method: ",FindRoot.secant_method(f,x1,x0))
+print()
+
+a,b=x0,x1
+print("Bisection Method: ",FindRoot.bisection_method(a,b,f))
 print()
 
 #problem 2 
