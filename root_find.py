@@ -36,8 +36,15 @@ class FindRoot:
 
         
 
-    def bisection_method():
-        pass
+    def bisection_method(a,b,f,tol=10**-6):
+        while (a-b)/2>tol:
+            c=a+b
+            if f(c)=0:break
+        if f(a)*f(0)<0:
+            b=c 
+        else:a=c
+        return (a-b)/2
+
 
 #test newton_method
 f = lambda x:x**2-2
