@@ -1,0 +1,68 @@
+Problem a
+Newton's Method:  0.7148059123627707
+
+Secant Method:  0.7148059123554098
+
+Bisection Method:  0.7148056030273438
+
+Problem b
+Newton's Method:  0.2
+
+Secant Method:  0.19999999999114973
+
+Bisection Method:  0.19999961853027343
+
+Problem c
+Newton's Method:  2.0945514815423265
+
+Secant Method:  2.094551481569724
+
+Bisection Method:  2.0945506572723387
+
+Problem d
+Newton's Method:  0.6931471805600257
+
+Secant Method:  0.6931471805757405
+
+Bisection Method:  0.6931467056274416
+
+Problem e
+Newton's Method:  0.567143290409784
+
+Secant Method:  0.5671432904420043
+
+Bisection Method:  0.5671438217163085
+
+Problem f
+Newton's Method:  1.134724138401536
+
+Secant Method:  1.134724138401522
+
+Bisection Method:  1.134725570678711
+
+Problem g
+Newton's Method:  0.8767262153950625
+
+Secant Method:  0.8767262153942947
+
+Bisection Method:  0.8767266273498535
+
+Problem h
+Newton's Method:  1.2599210498948732
+
+Secant Method:  1.2599210498948596
+
+Bisection Method:  1.2599201202392578
+
+Problem i
+Newton's Method:  2.028757838110434
+
+Secant Method:  -2.0287578380661646
+
+Bisection Method:  1.5707950592041016
+
+Problem j
+
+
+Bisection Method:  2.999998728434245
+
