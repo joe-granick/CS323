@@ -1,4 +1,5 @@
 import math
+import matplotlib.pyplot as plt
 def coefficients(x=[],y=[], deg=0):
     """
     calculates coeffiecients for each degree polynomial
@@ -127,8 +128,7 @@ for i in range(len(x_sample)):
 for i in range(len(y_est)):
   y_err[i]= abs(y_est[i][-1]-y_actual[i])
 #print(y_err)
-err[0]=y_err
-print(max(err[0]))
+err[0]=max(y_err)
 
 y_est=[0]*len(x_sample)
 for i in range(len(x_sample)):
@@ -136,9 +136,7 @@ for i in range(len(x_sample)):
 for i in range(len(y_est)):
   y_err[i]= abs(y_est[i][-1]-y_actual[i])
 #print(y_err)
-err[1]=y_err
-print(max(err[1]))
-
+err[1]=max(y_err)
 
 y_est=[0]*len(x_sample)
 for i in range(len(x_sample)):
@@ -146,9 +144,7 @@ for i in range(len(x_sample)):
 for i in range(len(y_est)):
   y_err[i]= abs(y_est[i][-1]-y_actual[i])
 #print(y_err)
-err[2]=y_err
-print(max(err[2]))
-
+err[2]=max(y_err)
 
 y_est=[0]*len(x_sample)
 for i in range(len(x_sample)):
@@ -156,9 +152,7 @@ for i in range(len(x_sample)):
 for i in range(len(y_est)):
   y_err[i]= abs(y_est[i][-1]-y_actual[i])
 #print(y_err)
-err[3]=y_err
-print(max(err[2]))
-
+err[3]=max(y_err)
 
 y_est=[0]*len(x_sample)
 for i in range(len(x_sample)):
@@ -166,12 +160,13 @@ for i in range(len(x_sample)):
 for i in range(len(y_est)):
   y_err[i]= abs(y_est[i][-1]-y_actual[i])
 #print(y_err)
-err[4]=y_err
-print(max(err[4]))
+err[4]=max(y_err)
 
-
-
-
-
+plt.figure(figsize=(10, 6))
+plt.scatter(dim, err, color="blue")
+plt.xlabel("Polynomial Dimesnion d Pd: ")
+plt.ylabel("Max error from sample values vs estimate at sample")
+plt.title("Max sample error for polynomials degree d in (2,4,8,16,32)")
+plt.show()
 
 
