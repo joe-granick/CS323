@@ -1,16 +1,29 @@
 import math
 def coefficients(x=[],y=[], deg=0):
+    """
+    calculates coeffiecients for each degree polynomial
+    """
     fx = [None]*(deg+1)
     fx[0]=y
     for i in range(1,deg+1):
         fx[i]=diff_col(x,fx[i-1],i)
     return fx
 
-def polynomail_degree(px=0,x=[],div_table=[]):
+def polynomail_degree(px=0,x=[],coef=[]):
+    """
+    calculates 
+    """
     deg = len(x)
     values = [0]*deg
     points = point_value(px,x,deg)
-    retunr values
+    for degree in range(deg):
+        sum=0
+        for i in range(degree):
+            print(coef[i][0], " * ", points[i])
+            sum += (coef[i][0]*points[i])
+            print(sum)
+        values[degree]=sum
+    return values
 
 def point_value(px=0,x=[],deg=0):
     """
@@ -97,6 +110,12 @@ for co in coef:
     print()
     for fx in co:
         print(fx, ",",end="")
+px=1.5
+poly=deg_val = polynomail_degree(px,x, coef)
+
+for d in range(len(poly)):
+    print(poly[d])
+
 
 #order3_coef = div_diff(x=[1,2,3,4,5,6,7,8,9,10],y=order2_coef,order=2)
 #for coef in order2_coef:
