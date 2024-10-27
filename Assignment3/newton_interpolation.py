@@ -88,24 +88,24 @@ def generate_dimensions(dim,x0,xn):
 x=[1.0,1.3,1.6,1.9,2.2]
 y=[0.7651977,0.6200860,0.4554022,0.2818186,0.1103623]
 points = point_value(1.5,x,4)
-for px in points:print(px)
+#for px in points:print(px)
 
 coef=coefficients(x,y,4)
-for co in coef:
-    print()
-    for fx in co: print(fx, ",",end="")
+#for co in coef:
+#    print()
+#    for fx in co: print(fx, ",",end="")
 
 px=1.5
 poly=deg_val = polynomial_degree(px,x, coef)
-for d in range(len(poly)):print(poly[d])
+#for d in range(len(poly)):print(poly[d])
 
 x0,xn=-1.0,1.0
 dim=[2,4,8,16,32]
 pd = generate_dimensions(dim,x0,xn)
-for x in pd:
-    for xi in x:
-        print(xi,",",end="")
-    print()
+#for x in pd:
+#    for xi in x:
+#        print(xi,",",end="")
+#    print()
 n=501
 f = lambda x: math.e**x
 x_sample,y_actual = generate_samples(n,f,x0,xn) 
@@ -120,44 +120,55 @@ for i in range(len(dim)):
     coef_d[i] = coefficients(px,y,d)
 
 y_est=[0]*len(x_sample)
+err = [None]*len(dim)
+y_err=[0]*len(y_est)
 for i in range(len(x_sample)):
     y_est[i]=polynomial_degree(x_sample[i],pd[0],coef_d[0])
-for ye in y_est:
-    print(ye)
 for i in range(len(y_est)):
-  print("(",x_sample[i],",",",",y_est[i][-1],",",y_actual[i],",",y_est[i][-1]-y_actual[i],")")
+  y_err[i]= abs(y_est[i][-1]-y_actual[i])
+#print(y_err)
+err[0]=y_err
+print(max(err[0]))
 
 y_est=[0]*len(x_sample)
 for i in range(len(x_sample)):
     y_est[i]=polynomial_degree(x_sample[i],pd[1],coef_d[1])
-for ye in y_est:
-    print(ye)
 for i in range(len(y_est)):
-  print("(",x_sample[i],",",",",y_est[i][-1],",",y_actual[i],",",y_est[i][-1]-y_actual[i],")")
+  y_err[i]= abs(y_est[i][-1]-y_actual[i])
+#print(y_err)
+err[1]=y_err
+print(max(err[1]))
+
 
 y_est=[0]*len(x_sample)
 for i in range(len(x_sample)):
     y_est[i]=polynomial_degree(x_sample[i],pd[2],coef_d[2])
-for ye in y_est:
-    print(ye)
 for i in range(len(y_est)):
-  print("(",x_sample[i],",",",",y_est[i][-1],",",y_actual[i],",",y_est[i][-1]-y_actual[i],")")
+  y_err[i]= abs(y_est[i][-1]-y_actual[i])
+#print(y_err)
+err[2]=y_err
+print(max(err[2]))
+
 
 y_est=[0]*len(x_sample)
 for i in range(len(x_sample)):
     y_est[i]=polynomial_degree(x_sample[i],pd[3],coef_d[3])
-for ye in y_est:
-    print(ye)
 for i in range(len(y_est)):
-  print("(",x_sample[i],",",",",y_est[i][-1],",",y_actual[i],",",y_est[i][-1]-y_actual[i],")")
+  y_err[i]= abs(y_est[i][-1]-y_actual[i])
+#print(y_err)
+err[3]=y_err
+print(max(err[2]))
+
 
 y_est=[0]*len(x_sample)
 for i in range(len(x_sample)):
     y_est[i]=polynomial_degree(x_sample[i],pd[4],coef_d[4])
-for ye in y_est:
-    print(ye)
 for i in range(len(y_est)):
-  print("(",x_sample[i],",",",",y_est[i][-1],",",y_actual[i],",",y_est[i][-1]-y_actual[i],")")
+  y_err[i]= abs(y_est[i][-1]-y_actual[i])
+#print(y_err)
+err[4]=y_err
+print(max(err[4]))
+
 
 
 
