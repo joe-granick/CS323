@@ -117,6 +117,35 @@ for d in range(len(poly)):
     print(poly[d])
 
 
+x0 =-1
+xn=1
+dimensions =[2,4,8,16,32]
+for n in dimensions:
+    i = (xn-x0)/n
+    x=[0]*(n+1)
+    xi=x0
+    j=0
+    while xi <= xn:
+        x[j]=xi
+        xi+=i
+        j+=1 
+    for xi in x:
+        print(xi,",",end="")
+    print()
+
+x_sample = [0]*n
+y_actual = [0]*n
+n=501
+f = lambda x: math.e**x
+for i in range(0,n):
+    xi=-1+(2*i/500)
+    x_sample[i]=xi
+    y_actual[i]= f(xi)
+    
+
+
+    x_sample[i]=xi
+
 #order3_coef = div_diff(x=[1,2,3,4,5,6,7,8,9,10],y=order2_coef,order=2)
 #for coef in order2_coef:
 #    print(coef)
