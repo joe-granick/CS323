@@ -1,11 +1,16 @@
 import math
-def newton_polynomial(px=0,x=[],y=[], deg=0):
-    coef = [0]*deg
+def coefficients(x=[],y=[], deg=0):
+    fx = [None]*(deg+1)
+    fx[0]=y
+    for i in range(1,deg+1):
+        fx[i]=diff_col(x,fx[i-1],i)
+    return fx
 
-    pass
-
-def calculate_polynomial(x=0,div_table=[]):
-    pass
+def polynomail_degree(px=0,x=[],div_table=[]):
+    deg = len(x)
+    values = [0]*deg
+    points = point_value(px,x,deg)
+    retunr values
 
 def point_value(px=0,x=[],deg=0):
     """
@@ -86,6 +91,12 @@ for i in range(len(points)):
     print(fx[i][0], " * ", points[i])
     sum += (fx[i][0]*points[i])
     print(sum)
+
+coef=coefficients(x,y,4)
+for co in coef:
+    print()
+    for fx in co:
+        print(fx, ",",end="")
 
 #order3_coef = div_diff(x=[1,2,3,4,5,6,7,8,9,10],y=order2_coef,order=2)
 #for coef in order2_coef:
