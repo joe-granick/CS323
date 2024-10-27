@@ -9,7 +9,7 @@ def coefficients(x=[],y=[], deg=0):
         fx[i]=diff_col(x,fx[i-1],i)
     return fx
 
-def polynomail_degree(px=0,x=[],coef=[]):
+def polynomial_degree(px=0,x=[],coef=[]):
     """
     calculates 
     """
@@ -50,6 +50,7 @@ def div_diff(f_x1,f_x0, x1,x0):
     diff = (f_x1-f_x0)/(x1-x0)
     print("(", f_x1," - ", f_x0, ")", "/","(",x1, " - ", x0,")"," = ", diff) 
     return diff
+
 def diff_col(x=[], y=[],deg=0):
     """     
         calculates coefficient for next order of polynomial
@@ -61,10 +62,34 @@ def diff_col(x=[], y=[],deg=0):
         #print(fx[i])
     return fx
 
+def generate_samples(n,f,x0,xn):
+    """
+    generates uniform sample distirbuton
+    of x and f(x) between a given range
+    for desired number of sample points n
+    """
+    x_sample=[0]*n
+    y_actual=[0]*n
+    for i in range(0,n):
+        xi=x0+((xn-x0)*i/(n-1))
+        x_sample[i]=xi
+        y_actual[i]= f(xi)
+    return x_sample,y_actual
 
-def generate_uniform_samples(n=501):
-    pass
-
+def generate_dimensions(dim,x0,xn):
+    n = len(dim)
+    pd =[None]*n
+    for _ in range(n):
+        d=dim[_]
+        i = (xn-x0)/d
+        x=[0]*(d+1)
+        xi=x0
+        j=0
+        while xi <= xn:
+            x[j]=xi
+            xi+=i
+            j+=1
+        pd[_]=x
 
 x=[1,2,3,4,5,6,7,8,9,10]
 y= [None]*len(x)
@@ -72,7 +97,6 @@ f = lambda x: x**2
 for i in range(len(x)):
     y[i]=f(x[i])
     print("x: ", x[i], ", ", "y: ", y[i])
-
 
 x =[1.0,1.3,1.6,1.9,2.2]
 y=[0.7651977,0.6200860,0.4554022,0.2818186,0.1103623]
@@ -111,42 +135,17 @@ for co in coef:
     for fx in co:
         print(fx, ",",end="")
 px=1.5
-poly=deg_val = polynomail_degree(px,x, coef)
+poly=deg_val = polynomial_degree(px,x, coef)
 
 for d in range(len(poly)):
     print(poly[d])
 
-
 x0 =-1
 xn=1
-dimensions =[2,4,8,16,32]
-for n in dimensions:
-    i = (xn-x0)/n
-    x=[0]*(n+1)
-    xi=x0
-    j=0
-    while xi <= xn:
-        x[j]=xi
-        xi+=i
-        j+=1 
-    for xi in x:
-        print(xi,",",end="")
-    print()
-
-x_sample = [0]*n
-y_actual = [0]*n
+dim=[2,4,8,16,32]
+generate_dimensions(dim,x0,xn)
 n=501
 f = lambda x: math.e**x
-for i in range(0,n):
-    xi=-1+(2*i/500)
-    x_sample[i]=xi
-    y_actual[i]= f(xi)
-    
-
-
-    x_sample[i]=xi
-
-#order3_coef = div_diff(x=[1,2,3,4,5,6,7,8,9,10],y=order2_coef,order=2)
-#for coef in order2_coef:
-#    print(coef)
-
+x0,xn=-1.0,1.0
+x_sample,y_actual = generate_samples(n,f,x0,xn) 
+for i in range(n):print("(",x_sample[i],",",y_actual[i],")")
